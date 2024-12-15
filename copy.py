@@ -4,7 +4,7 @@ import datetime
 import shutil
 import json
 
-# Copy images from one Grid to another using Grid API.
+# Copy images from one Grid to another using the Grid API.
 # Iterates through the source images by upload date.
 # Downloads the original image and reuploads it to the destination Grid.
 # Preserves the original upload time and metadata.
