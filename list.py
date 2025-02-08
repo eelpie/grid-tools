@@ -20,7 +20,7 @@ def iterate_images(process_image):
 	last_todo = 0
 	while todo != 0:
 		next_since = since
-		params = {'orderBy': 'uploadTime', 'length': page_size, 'since': since}
+		params = {'orderBy': 'uploadTime', 'length': page_size, 'since': since, 'q': ""}
 		r = requests.get(source_images_endpoint, headers=source_api_auth_headers, params=params)
 		if r.status_code != 200:
 			raise Exception('Failed to fetch images: ' + str(r.json()))
