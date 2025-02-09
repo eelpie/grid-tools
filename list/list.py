@@ -4,12 +4,13 @@ import json
 import datetime
 import sys
 
+
 # Source grid details
-source_images_endpoint = "https://TODO.hostedgrid.app/media-api/images"
-source_grid_api_key = ""
+source_images_endpoint = sys.argv[1]
+source_grid_api_key = sys.argv[2]
 
 # The unescaped Grid query
-query='tower #"South coast path"'
+query=sys.argv[3]
 
 # Step through the images using upload time as our pagination key until no more records are found
 def iterate_images(process_image):
