@@ -8,6 +8,9 @@ import sys
 source_images_endpoint = "https://TODO.hostedgrid.app/media-api/images"
 source_grid_api_key = ""
 
+# The unescaped Grid query
+query='tower #"South coast path"'
+
 # Step through the images using upload time as our pagination key until no more records are found
 def iterate_images(process_image):
 	source_api_auth_headers = {'X-Gu-Media-Key': source_grid_api_key}
@@ -20,7 +23,7 @@ def iterate_images(process_image):
 	last_todo = 0
 	while todo != 0:
 		next_since = since
-		params = {'orderBy': 'uploadTime', 'length': page_size, 'since': since, 'q': ""}
+		params = {'orderBy': 'uploadTime', 'length': page_size, 'since': since, 'q': query}
 		r = requests.get(source_images_endpoint, headers=source_api_auth_headers, params=params)
 		if r.status_code != 200:
 			raise Exception('Failed to fetch images: ' + str(r.json()))
